@@ -16,10 +16,27 @@
         android:textSize="30dp" />
 
     <fragment
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:name="sanchez.daniel.actividad3.TestFragment"
-        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="sanchez.daniel.actividad3.RegistroFragment"
+        android:id="@+id/fragmentoRegistro"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="sanchez.daniel.actividad3.LoginFragment"
+        android:id="@+id/fragmentoLogin"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="sanchez.daniel.actividad3.CreditosFragment"
+        android:id="@+id/fragmentoCreditos"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
