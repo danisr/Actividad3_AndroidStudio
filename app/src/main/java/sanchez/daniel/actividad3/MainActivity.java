@@ -8,7 +8,6 @@ import android.os.Bundle;
 import junit.framework.Test;
 
 public class MainActivity extends AppCompatActivity {
-    TestFragment testFragment;
     CreditosFragment creditosFragment;
     LoginFragment loginFragment;
     RegistroFragment registroFragment;
