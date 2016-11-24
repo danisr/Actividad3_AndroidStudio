@@ -1,11 +1,14 @@
 package sanchez.daniel.actividad3;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -14,11 +17,14 @@ import java.util.TimerTask;
  */
 public class CreditosFragment extends Fragment {
     TimerTask timerTask; //Sirve para pasar de imagen a imagen (habrán 3 imágenes)
-    Timer timer;
+    Timer timer; //Sirve para que funcionen todos los timerTask que hayan
+    public ImageView img1;
+    public ImageView img2;
+    public ImageView img3;
+    public MainActivity mainActivity;
 
     public CreditosFragment() {
         // Required empty public constructor
-
     }
 
     @Override
@@ -26,18 +32,34 @@ public class CreditosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_creditos, container, false);
-        v.findViewById(R.id.img1);
+        img1 = (ImageView) v.findViewById(R.id.img1);
+        img2 = (ImageView) v.findViewById(R.id.img2);
+        img3 = (ImageView) v.findViewById(R.id.img3);
+        mainActivity = (MainActivity)getActivity(); //Para referenciar el mainActivity en esta clase
 
         timerTask = new TimerTask() {
             public void run() {
-                Log.v("TimerTask", "HEY!!!");
-                //Cuando llegue la última imagen
-                timer.cancel();
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.v("CreditosFragment","ENTRE!!! ");
+                        if (img1.getVisibility() == View.VISIBLE ) {
+                            img1.setVisibility(View.INVISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                        } else if (img2.getVisibility() == View.VISIBLE) {
+                            img2.setVisibility(View.INVISIBLE);
+                            img3.setVisibility(View.VISIBLE);
+                        } else if (img3.getVisibility() == View.VISIBLE) {
+                            timer.cancel(); //Termina el tiempo
+                            mainActivity.cambiarFragment(2); //Se cambia a la vista de login
+                        }
+                    }
+                });
             }
         };
 
         timer = new Timer();
-        timer.schedule(timerTask, 5000, 10000); //Timer va ejecutando la tarea repetidamente
+        timer.schedule(timerTask, 5000, 5000); //(5000) Cuanto tiempo tarda la app en ejecutar la tarea. (10000) Cada cuánto tiempo está realizando la tarea
 
         return v;
     }

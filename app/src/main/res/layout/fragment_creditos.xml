@@ -11,19 +11,25 @@
         android:layout_height="match_parent"
         android:id="@+id/img1"
         android:visibility="visible"
-        android:src="@drawable/geralt"/>
+        android:scaleType="fitXY"
+        android:src="@drawable/geralt" />
+
+    //android:scaleType="fitXY" para que la imágen se escale al 100% de los ejes x y
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/img2"
         android:visibility="gone"
+        android:scaleType="fitXY"
         android:src="@drawable/yennefer" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/img3"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:scaleType="fitXY"
+        android:src="@drawable/ciri" />
 
 </RelativeLayout>

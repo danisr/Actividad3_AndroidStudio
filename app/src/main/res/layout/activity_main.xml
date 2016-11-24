@@ -20,16 +20,16 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="sanchez.daniel.actividad3.RegistroFragment"
-        android:id="@+id/fragmentoRegistro"
+        android:name="sanchez.daniel.actividad3.LoginFragment"
+        android:id="@+id/fragmentoLogin"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="sanchez.daniel.actividad3.LoginFragment"
-        android:id="@+id/fragmentoLogin"
+        android:name="sanchez.daniel.actividad3.RegistroFragment"
+        android:id="@+id/fragmentoRegistro"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 

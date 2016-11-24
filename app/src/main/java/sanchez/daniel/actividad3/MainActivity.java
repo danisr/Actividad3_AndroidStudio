@@ -22,11 +22,23 @@ public class MainActivity extends AppCompatActivity {
         loginFragment = (LoginFragment) fm.findFragmentById(R.id.fragmentoLogin);
         registroFragment = (RegistroFragment) fm.findFragmentById(R.id.fragmentoRegistro);
 
+        cambiarFragment(1);
+    }
+
+    public void cambiarFragment(int ifrg) {
+        FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.hide(creditosFragment);
-        transaction.show(loginFragment);
+        transaction.hide(loginFragment);
+        transaction.hide(registroFragment);
+
+        if (ifrg == 1) {
+            transaction.show(creditosFragment);
+        } else if (ifrg == 2) {
+            transaction.show(loginFragment);
+        } else if (ifrg == 3) {
+            transaction.show(registroFragment);
+        }
         transaction.commit();
-
-
     }
 }
