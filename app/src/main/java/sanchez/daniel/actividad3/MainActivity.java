@@ -4,13 +4,24 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-import junit.framework.Test;
+import com.quickblox.core.model.QBBaseCustomObject;
+import com.quickblox.users.model.QBUser;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+import sanchez.daniel.libreria.QBAdmin;
+import sanchez.daniel.libreria.QBAdminListener;
+
+public class MainActivity extends AppCompatActivity implements QBAdminListener {
     CreditosFragment creditosFragment;
     LoginFragment loginFragment;
     RegistroFragment registroFragment;
+    public Button btnRegistro;
+    QBAdmin qbAdmin;
+    QBUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,16 +34,20 @@ public class MainActivity extends AppCompatActivity {
         registroFragment = (RegistroFragment) fm.findFragmentById(R.id.fragmentoRegistro);
 
         cambiarFragment(1);
+
+        qbAdmin = new QBAdmin(this); //Para que no dé error el (this) hay que hacer implements de QBAdminListener e implementar el método logeado
+        qbAdmin.login("usuario", "password");
+        qbAdmin.selectDeTabla(); //Se llama a método de QBAdmin
     }
 
     public void cambiarFragment(int ifrg) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
-        transaction.hide(creditosFragment);
+        transaction.hide(creditosFragment); //Se ocultan todos los fragments
         transaction.hide(loginFragment);
         transaction.hide(registroFragment);
 
-        if (ifrg == 1) {
+        if (ifrg == 1) { //Si lo que llega por parámetro es un 1 se muestra creditosFragment
             transaction.show(creditosFragment);
         } else if (ifrg == 2) {
             transaction.show(loginFragment);
@@ -40,5 +55,15 @@ public class MainActivity extends AppCompatActivity {
             transaction.show(registroFragment);
         }
         transaction.commit();
+    }
+
+    @Override
+    public void logeado(boolean blLogeado, QBUser user) {
+        //syso(Me he logeado)
+    }
+
+    @Override
+    public void datosDescargados(ArrayList<QBBaseCustomObject> datos) {
+
     }
 }
