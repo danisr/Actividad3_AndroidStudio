@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -13,6 +14,7 @@ import android.widget.Button;
 public class LoginFragment extends Fragment implements View.OnClickListener, View.OnFocusChangeListener {
     public MainActivity mainActivity;
     public Button btnRegistro;
+    MainActivityController mainActivityController; //Comunicarse con el controller
 
     public LoginFragment() {
         // Required empty public constructor
@@ -29,6 +31,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Vie
         return v;
     }
 
+    //Para ir a REGISTRO
+    @Override
     public void onClick(View bntPulsado) {
         if (bntPulsado.getId() == R.id.btnRegistro){
             mainActivity.cambiarFragment(3); //Se va a vista Registro

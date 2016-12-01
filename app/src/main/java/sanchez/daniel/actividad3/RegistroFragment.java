@@ -29,6 +29,7 @@ public class RegistroFragment extends Fragment implements View.OnClickListener, 
         return v;
     }
 
+    //Para ir a LOGIN
     @Override
     public void onClick(View bntPulsado) {
         if (bntPulsado.getId() == R.id.btnIrLogin){

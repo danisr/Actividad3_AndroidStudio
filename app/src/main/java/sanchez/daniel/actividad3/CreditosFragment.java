@@ -28,7 +28,6 @@ public class CreditosFragment extends Fragment implements QBAdminListener {
     public ImageView img2;
     public ImageView img3;
     public MainActivity mainActivity;
-    QBUser user;
 
     public CreditosFragment() {
         // Required empty public constructor
