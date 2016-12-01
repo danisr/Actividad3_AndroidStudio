@@ -11,10 +11,12 @@ import android.widget.EditText;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends Fragment implements View.OnClickListener, View.OnFocusChangeListener {
+public class LoginFragment extends Fragment {
     public MainActivity mainActivity;
-    public Button btnRegistro;
-    MainActivityController mainActivityController; //Comunicarse con el controller
+    public Button btnIrRegistro;
+    public Button btnEntrar;
+    public EditText txtUsuario;
+    public EditText txtPassword;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -24,22 +26,18 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Vie
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_login, container, false);
-        btnRegistro = (Button) v.findViewById(R.id.btnRegistro); //Crear instancia, encuentra vista a partir de su id
-        btnRegistro.setOnClickListener(this);
+        btnIrRegistro = (Button) v.findViewById(R.id.btnIrRegistro); //Crear instancia, encuentra vista a partir de su id
+        btnEntrar = (Button) v.findViewById(R.id.btnEntrar);
+
         mainActivity = (MainActivity)getActivity(); //Para referenciar el mainActivity en esta clase
+        txtUsuario=(EditText)v.findViewById(R.id.txtUsuario);
+        txtPassword=(EditText)v.findViewById(R.id.txtPassword);
 
         return v;
     }
 
-    //Para ir a REGISTRO
-    @Override
-    public void onClick(View bntPulsado) {
-        if (bntPulsado.getId() == R.id.btnRegistro){
-            mainActivity.cambiarFragment(3); //Se va a vista Registro
-        }
-    }
-
-    @Override
-    public void onFocusChange(View view, boolean b) {
+    public void setController(MainActivityController controller){
+        btnIrRegistro.setOnClickListener(controller);
+        btnEntrar.setOnClickListener(controller);
     }
 }

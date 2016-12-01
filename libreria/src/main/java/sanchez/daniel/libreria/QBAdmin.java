@@ -2,6 +2,9 @@ package sanchez.daniel.libreria;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.quickblox.auth.QBAuth;
+import com.quickblox.auth.model.QBSession;
 import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.QBSettings;
 import com.quickblox.core.exception.QBResponseException;
@@ -21,10 +24,40 @@ public class QBAdmin {
         String APP_ID = "50447";
         String AUTH_KEY = "45yEfcY9ShBwDhR";
         String AUTH_SECRET = "dAZTza9qBVsk5mD";
-        String ACCOUNT_KEY = "49742";
+        String ACCOUNT_KEY = "KkCSxKFcudnVhujyT5fu";
 
         QBSettings.getInstance().init(activity, APP_ID, AUTH_KEY, AUTH_SECRET);
         QBSettings.getInstance().setAccountKey(ACCOUNT_KEY);
+
+        // Para conectarse con quickblox
+        QBAuth.createSession(new QBEntityCallback<QBSession>() {
+            @Override
+            public void onSuccess(QBSession session, Bundle params) {
+                // You have successfully created the session
+                // Now you can use QuickBlox API!
+            }
+            @Override
+            public void onError(QBResponseException errors) {
+            }
+        });
+    }
+
+    // REGISTRO DE USUARIO
+    public void registro (String usuario, String email, String password) {
+        QBUser user = new QBUser(usuario, password);
+        user.setEmail(email);
+
+        QBUsers.signUp(user, new QBEntityCallback<QBUser>() {
+            @Override
+            public void onSuccess(QBUser user, Bundle args) {
+                listener.registrado(true, user);
+            }
+
+            @Override
+            public void onError(QBResponseException error) {
+                listener.registrado(false, null);
+            }
+        });
     }
 
     // LOGIN DE USUARIO
@@ -45,6 +78,5 @@ public class QBAdmin {
     }
 
     public void selectDeTabla() {
-
     }
 }

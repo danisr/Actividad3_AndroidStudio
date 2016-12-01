@@ -12,32 +12,25 @@ import java.util.ArrayList;
 import sanchez.daniel.libreria.QBAdmin;
 import sanchez.daniel.libreria.QBAdminListener;
 
-public class MainActivity extends AppCompatActivity implements QBAdminListener {
+public class MainActivity extends AppCompatActivity {
     CreditosFragment creditosFragment;
-    LoginFragment loginFragment;
+    public LoginFragment loginFragment;
     RegistroFragment registroFragment;
-    QBAdmin qbAdmin;
-    public EditText txtUsuario;
-    public EditText txtPassword;
+    MainActivityController mainActivityController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        txtUsuario=(EditText)this.findViewById(R.id.txtUsuario);
-        txtPassword=(EditText)this.findViewById(R.id.txtPassword);
+        mainActivityController=new MainActivityController(this);
 
         FragmentManager fm = getSupportFragmentManager(); //Referencia el objeto que gestiona los fragmentos
         creditosFragment = (CreditosFragment) fm.findFragmentById(R.id.fragmentoCreditos); //Acceder a variables internas
         loginFragment = (LoginFragment) fm.findFragmentById(R.id.fragmentoLogin);
         registroFragment = (RegistroFragment) fm.findFragmentById(R.id.fragmentoRegistro);
-
+        loginFragment.setController(mainActivityController); //Para conectar el login con el controller
+        registroFragment.setController(mainActivityController); //Para conectar el registro con el controller
         cambiarFragment(1);
-
-        qbAdmin = new QBAdmin(this, this); //El 1º this es the MainActivity y el 2º this es de Activity
-        qbAdmin.login("usuario", "password");
-        qbAdmin.selectDeTabla(); //Se llama a método de QBAdmin
     }
 
     public void cambiarFragment(int ifrg) { //Recibe por parámetro el número del fragment al que se va a cambiar
@@ -55,15 +48,5 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener {
             transaction.show(registroFragment);
         }
         transaction.commit();
-    }
-
-    @Override
-    public void logeado(boolean blLogeado, QBUser user) {
-        //syso(Me he logeado)
-    }
-
-    @Override
-    public void datosDescargados(ArrayList<QBBaseCustomObject> datos) {
-
     }
 }

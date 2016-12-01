@@ -21,7 +21,7 @@ import sanchez.daniel.libreria.QBAdminListener;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CreditosFragment extends Fragment implements QBAdminListener {
+public class CreditosFragment extends Fragment {
     TimerTask timerTask; //Sirve para pasar de imagen a imagen (habrán 3 imágenes)
     Timer timer; //Sirve para que funcionen todos los timerTask que hayan
     public ImageView img1;
@@ -68,18 +68,8 @@ public class CreditosFragment extends Fragment implements QBAdminListener {
         };
 
         timer = new Timer();
-        timer.schedule(timerTask, 5000, 5000); //(5000) Cuanto tiempo tarda la app en ejecutar la tarea. (10000) Cada cuánto tiempo está realizando la tarea
+        timer.schedule(timerTask, 1000, 1000); //(5000) Cuanto tiempo tarda la app en ejecutar la tarea. (10000) Cada cuánto tiempo está realizando la tarea
 
         return v;
-    }
-
-    @Override
-    public void logeado(boolean blLogeado, QBUser user) {
-
-    }
-
-    @Override
-    public void datosDescargados(ArrayList<QBBaseCustomObject> datos) {
-
     }
 }
