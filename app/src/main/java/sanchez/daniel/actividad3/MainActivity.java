@@ -26,11 +26,13 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fm = getSupportFragmentManager(); //Referencia el objeto que gestiona los fragmentos
         creditosFragment = (CreditosFragment) fm.findFragmentById(R.id.fragmentoCreditos); //Acceder a variables internas
-        loginFragment = (LoginFragment) fm.findFragmentById(R.id.fragmentoLogin);
+
         registroFragment = (RegistroFragment) fm.findFragmentById(R.id.fragmentoRegistro);
-        loginFragment.setController(mainActivityController); //Para conectar el login con el controller
+        loginFragment = (LoginFragment) fm.findFragmentById(R.id.fragmentoLogin);
         registroFragment.setController(mainActivityController); //Para conectar el registro con el controller
-        cambiarFragment(1);
+        loginFragment.setController(mainActivityController); //Para conectar el login con el controller
+
+        cambiarFragment(1); //Pasa a pantalla de creditos
     }
 
     public void cambiarFragment(int ifrg) { //Recibe por parámetro el número del fragment al que se va a cambiar

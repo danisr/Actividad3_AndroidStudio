@@ -1,6 +1,8 @@
 package sanchez.daniel.actividad3;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -53,7 +55,15 @@ public class MainActivityController implements View.OnClickListener, QBAdminList
     @Override
     public void logeado(boolean blLogeado, QBUser User) {
         if(blLogeado) {
-            //cambio a 2ª mainactivity
+            Log.v("", "Logeado");
+
+            //cambio a 2ª mainactivity, datos de idiomas
+            Intent intent = new Intent(vista, MainActivity2.class);
+            vista.startActivity(intent);
+            vista.finish();//Mata la vista MainActivity
+
+        } else {
+            Log.v("", "NO");
         }
     }
 

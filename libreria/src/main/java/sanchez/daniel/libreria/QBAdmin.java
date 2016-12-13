@@ -62,7 +62,7 @@ public class QBAdmin {
 
     // LOGIN DE USUARIO
     public void login (String usuario, String password) {
-        QBUser user = new QBUser("usuario", "password");
+        QBUser user = new QBUser(usuario, password);
 
         QBUsers.signIn(user, new QBEntityCallback<QBUser>() {
             @Override
