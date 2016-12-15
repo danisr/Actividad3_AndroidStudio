@@ -2,9 +2,11 @@ package sanchez.daniel.actividad3;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.quickblox.core.model.QBBaseCustomObject;
 import com.quickblox.users.model.QBUser;
@@ -56,14 +58,18 @@ public class MainActivityController implements View.OnClickListener, QBAdminList
     public void logeado(boolean blLogeado, QBUser User) {
         if(blLogeado) {
             Log.v("", "Logeado");
+            Toast.makeText(vista, "Sesión Iniciada", Toast.LENGTH_SHORT).show();
 
             //cambio a 2ª mainactivity, datos de idiomas
             Intent intent = new Intent(vista, MainActivity2.class);
             vista.startActivity(intent);
             vista.finish();//Mata la vista MainActivity
 
+
+
         } else {
             Log.v("", "NO");
+            Toast.makeText(vista, "Usuario o Contraseña Incorrecto", Toast.LENGTH_SHORT).show();
         }
     }
 
