@@ -1,14 +1,13 @@
 package sanchez.daniel.libreria;
 
-import com.quickblox.core.model.QBBaseCustomObject;
 import com.quickblox.users.model.QBUser;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by daniel.rodriguez on 29/11/2016.
  */
-public interface QBAdminListener {
-    public void registrado (boolean blRegistrado, QBUser User);
-    public void logeado(boolean blLogeado, QBUser User); //Se llama al método
-    public void datosDescargados(ArrayList<QBBaseCustomObject> datos);
+public interface QBAdminListener { //Interface, sirve de plantilla para modificaciones futuras. Métodos implementados en QBAdmin
+    public void registrado (boolean blRegistrado, QBUser User); //Se llama al método
+    public void logeado(boolean blLogeado, QBUser User);
+    public void idiomasDescargados(HashMap<Integer,String> idiomasDesc);
 }

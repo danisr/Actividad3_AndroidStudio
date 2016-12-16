@@ -1,24 +1,18 @@
 package sanchez.daniel.actividad3;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
-
-import com.quickblox.core.model.QBBaseCustomObject;
 import com.quickblox.users.model.QBUser;
-import java.util.ArrayList;
-
+import java.util.HashMap;
 import sanchez.daniel.libreria.QBAdmin;
 import sanchez.daniel.libreria.QBAdminListener;
 
 /**
  * Created by daniel.rodriguez on 01/12/2016.
  */
-public class MainActivityController implements View.OnClickListener, QBAdminListener {
+public class MainActivityController implements View.OnClickListener, View.OnFocusChangeListener, QBAdminListener {
     MainActivity vista;
     QBAdmin qbAdmin;
 
@@ -48,9 +42,13 @@ public class MainActivityController implements View.OnClickListener, QBAdminList
 
     @Override
     public void registrado(boolean blRegistrado, QBUser User) {
-        //syso(Registrado correctamente);
         if (blRegistrado) {
+            Log.v("", "Registrado");
+            Toast.makeText(vista, "Usuario Registrado", Toast.LENGTH_SHORT).show();
             vista.cambiarFragment(2);
+        } else {
+            Log.v("", "Fallo en el registro");
+            Toast.makeText(vista, "Email o Usuario existente o Usuario y Contraseña incorrecto", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -64,9 +62,6 @@ public class MainActivityController implements View.OnClickListener, QBAdminList
             Intent intent = new Intent(vista, MainActivity2.class);
             vista.startActivity(intent);
             vista.finish();//Mata la vista MainActivity
-
-
-
         } else {
             Log.v("", "NO");
             Toast.makeText(vista, "Usuario o Contraseña Incorrecto", Toast.LENGTH_SHORT).show();
@@ -74,6 +69,9 @@ public class MainActivityController implements View.OnClickListener, QBAdminList
     }
 
     @Override
-    public void datosDescargados(ArrayList<QBBaseCustomObject> datos) {
+    public void idiomasDescargados(HashMap<Integer, String> datosDesc) {
+    }
+    @Override
+    public void onFocusChange(View view, boolean b) {
     }
 }

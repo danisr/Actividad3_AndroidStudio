@@ -1,22 +1,14 @@
 package sanchez.daniel.actividad3;
 
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-import com.quickblox.core.model.QBBaseCustomObject;
-import com.quickblox.users.model.QBUser;
-
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import sanchez.daniel.libreria.QBAdminListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,7 +58,6 @@ public class CreditosFragment extends Fragment {
                 }
             }
         };
-
         timer = new Timer();
         timer.schedule(timerTask, 1000, 1000); //(5000) Cuanto tiempo tarda la app en ejecutar la tarea. (10000) Cada cuánto tiempo está realizando la tarea
 

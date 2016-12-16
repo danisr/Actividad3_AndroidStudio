@@ -4,13 +4,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
-
-import com.quickblox.core.model.QBBaseCustomObject;
-import com.quickblox.users.model.QBUser;
-import java.util.ArrayList;
-import sanchez.daniel.libreria.QBAdmin;
-import sanchez.daniel.libreria.QBAdminListener;
 
 public class MainActivity extends AppCompatActivity {
     CreditosFragment creditosFragment;
@@ -25,10 +18,11 @@ public class MainActivity extends AppCompatActivity {
         mainActivityController=new MainActivityController(this);
 
         FragmentManager fm = getSupportFragmentManager(); //Referencia el objeto que gestiona los fragmentos
-        creditosFragment = (CreditosFragment) fm.findFragmentById(R.id.fragmentoCreditos); //Acceder a variables internas
 
+        creditosFragment = (CreditosFragment) fm.findFragmentById(R.id.fragmentoCreditos); //Acceder a variables internas
         registroFragment = (RegistroFragment) fm.findFragmentById(R.id.fragmentoRegistro);
         loginFragment = (LoginFragment) fm.findFragmentById(R.id.fragmentoLogin);
+
         registroFragment.setController(mainActivityController); //Para conectar el registro con el controller
         loginFragment.setController(mainActivityController); //Para conectar el login con el controller
 

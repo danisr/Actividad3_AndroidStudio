@@ -4,23 +4,27 @@
     android:layout_height="match_parent"
     tools:context="sanchez.daniel.actividad3.MainActivity2">
 
-    <EditText
+    <TextView
+        android:text="Txt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/idp1"
+        android:id="@+id/txt1"
         android:layout_marginTop="220dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:width="100dp" />
+        android:width="100dp"
+        android:textAlignment="center" />
 
-    <EditText
+    <TextView
+        android:text="Txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/idp2"
+        android:id="@+id/txt2"
         android:layout_marginTop="24dp"
-        android:layout_below="@+id/idp1"
+        android:layout_below="@+id/txt1"
         android:layout_centerHorizontal="true"
-        android:width="100dp" />
+        android:width="100dp"
+        android:textAlignment="center" />
 
     <Button
         android:layout_width="wrap_content"
