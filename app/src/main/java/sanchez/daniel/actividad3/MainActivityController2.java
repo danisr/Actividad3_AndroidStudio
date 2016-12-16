@@ -41,7 +41,9 @@ public class MainActivityController2 implements View.OnClickListener, View.OnFoc
 
     @Override
     public void idiomasDescargados(HashMap<Integer, String> datosDesc) {
-
+        vista.txt1.setText(datosDesc.get(1)); //1 es el idp de quickblox
+        vista.txt2.setText(datosDesc.get(2));
+        vista.btnSpanish.setText(datosDesc.get(3));
+        vista.btnEnglish.setText(datosDesc.get(4));
     }
-
 }
