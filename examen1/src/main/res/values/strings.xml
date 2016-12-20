@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Actividad3</string>
+
+    // Para mostrar los titulos en SegundoActivityController
+    <string name="titulo1">Cristiano Ronaldo</string>
+    <string name="titulo2">Gareth Bale</string>
+    <string name="titulo3">Karim Benzema</string>
+    <string name="titulo4">Toni Kroos</string>
+
+    <string name="texto1">Cristiano Ronaldo es el pichichi del equipo</string>
+</resources>

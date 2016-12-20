@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sanchez.daniel.examen1.RegistroFragment">
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:id="@+id/txtUsuarioR"
+        android:textSize="20dp"
+        android:hint="Usuario"
+        android:textAlignment="center"
+        android:textColor="#3581e5"
+        android:background="#000000"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:textColorHint="#ededed" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:id="@+id/txtEmailR"
+        android:textSize="20dp"
+        android:hint="Email"
+        android:textAlignment="center"
+        android:textColor="#3581e5"
+        android:background="#000000"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/txtUsuarioR"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#ededed" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:id="@+id/txtPasswordR"
+        android:inputType="textPassword"
+        android:textSize="20dp"
+        android:hint="Contraseña"
+        android:textAlignment="center"
+        android:textColor="#3581e5"
+        android:background="#000000"
+        android:layout_gravity="center_horizontal"
+        android:textColorHint="#ededed"
+        android:layout_below="@+id/txtEmailR"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:id="@+id/txtPassword2R"
+        android:inputType="textPassword"
+        android:textSize="20dp"
+        android:hint="Confirmar Contraseña"
+        android:textAlignment="center"
+        android:textColor="#3581e5"
+        android:background="#000000"
+        android:layout_gravity="center_horizontal"
+        android:textColorHint="#ededed"
+        android:layout_below="@+id/txtPasswordR"
+        android:layout_alignLeft="@+id/txtEmailR"
+        android:layout_alignStart="@+id/txtEmailR"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Registro"
+        android:id="@+id/btnRegistrarse"
+        android:background="#06ad56"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:layout_below="@+id/txtPassword2R"
+        android:layout_alignLeft="@+id/txtPassword2R"
+        android:layout_alignStart="@+id/txtPassword2R"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="¿Registrado? Ir a Login"
+        android:id="@+id/btnIrLogin"
+        android:textColor="#135fc4"
+        android:textSize="20dp"
+        android:layout_below="@+id/btnRegistrarse"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp"
+        android:textColorHint="#135fc4"
+        android:background="#ffffff" />
+
+</RelativeLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sanchez.daniel.examen1.MainActivity">
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:id="@+id/txtUsuario"
+        android:textSize="20dp"
+        android:hint="Usuario"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:background="#ffffff"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="110dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:id="@+id/txtPassword"
+        android:inputType="textPassword"
+        android:textSize="20dp"
+        android:hint="Contraseña"
+        android:textAlignment="center"
+        android:layout_marginBottom="30dp"
+        android:textColor="#000000"
+        android:background="#ffffff"
+        android:layout_gravity="center_horizontal"
+        android:layout_above="@+id/btnEntrar"
+        android:layout_alignRight="@+id/txtUsuario"
+        android:layout_alignEnd="@+id/txtUsuario"
+        android:layout_marginTop="160dp" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Entrar"
+        android:textSize="20dp"
+        android:id="@+id/btnEntrar"
+        android:background="#06ad56"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/txtPassword"
+        android:layout_alignEnd="@+id/txtPassword"
+        android:layout_alignLeft="@+id/txtPassword"
+        android:layout_alignStart="@+id/txtPassword" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Registro"
+        android:id="@+id/btnIrRegistro"
+        android:textSize="20sp"
+        android:layout_marginBottom="73dp"
+        android:background="#3f3f3f"
+        android:textColor="#fbfafa"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
